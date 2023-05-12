@@ -8,7 +8,7 @@ namespace Backend_APIs.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int SkillID { get; set; }
-        public string? SkillName { get; set; }
+        public string SkillName { get; set; }
 
     }
 }

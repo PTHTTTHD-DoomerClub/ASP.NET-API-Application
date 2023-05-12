@@ -1,0 +1,58 @@
+------Basics.--------
+Database for user: user id, - done
+Bỏ vào layout form đăng ký - done
+Controller hướng vào service đăng ký. - done
+Connect to backend and create user. - done
+Thiết kế database. - Tạm ổn
+Cho user login.
+-- Link đăng nhập, html đăng nhập. - done
+-- Login, lưu token trên browser. - done
+-- Lần tiếp theo sử dụng token để request tài nguyên. - done
+
+Cho search khóa học - Không yêu cầu quyền truy cập.
+How to share file on cloud.
+Phân role user. - done
+-- Thêm trường trong db.
+-- Giải mã token từ backend. - done
+
+Login instructor.
+-- Redirect về trang của instructor (Làm phần html).
+-- Tạo trang cho instructor. Các khóa đang dạy, chọn vào.
+Yêu cầu tạo khóa học.
+-- Csdl. - done.
+-- Html. 
+-- Controller, backend xử lý trả về kết quả. - done.
+-- Xử lý ảnh.
+-- Render lên màn hình.
+Login admin page.
+-- HTML.
+-- Redirect controller.
+
+Accept/Decline khóa học.
+Xin vào khóa học.
+Yêu cầu người học tham gia khóa học.
+Đăng và xóa nội dung đi kèm bài tập mỗi khóa học.
+-- Upload nội dung.
+-- Đi kèm bài test nếu cần.
+-- Generate câu hỏi trắc nghiệm và đáp án?
+
+Vào làm test, có giới hạn thời gian.
+
+Admin thống kê.
+Admin accept/decline khóa học.
+
+------Bad ass features.--------
+HTML trắc nghiệm, máy chấm.
+Tự luận nộp file.
+
+
+------Bugs.--------
+URI đến bakckend bị tạo lại.
+
+
+
+------Polishing.--------
+Authorization
+Hashing password
+Email verification
+Trang thay đổi thông tin tài khoản.

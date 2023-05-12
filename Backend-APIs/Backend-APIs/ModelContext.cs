@@ -18,18 +18,25 @@ namespace Backend_APIs
         public DbSet<UserModel> Users { get; set; }
         public DbSet<SkillModel> Skills { get; set; }
         public DbSet<PrerequisiteCourseReference> PrerequisiteCourses { get; set; }
+        public DbSet<SkillTrainedByCourse> SkillsTrainedByCourse { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<SkillTrainedByCourse>().HasKey(nameof(SkillTrainedByCourse.CourseId), nameof(SkillTrainedByCourse.SkillId));
             modelBuilder.Entity<CourseModel>()
-                    .HasMany(e => e.PrerequisiteCourses)
-                    .WithOne(e => e.Course)
-                    .HasForeignKey(e => e.CourseID);
-            //.HasPrincipalKey(e => e.CourseID);
+                    .HasMany(course => course.PrerequisiteCourses)
+                    .WithOne(prerequire => prerequire.Course)
+                    .HasForeignKey(prerequire => prerequire.CourseID);
+
+            modelBuilder.Entity<CourseModel>()
+                    .HasMany(course => course.TrainingSkills)
+                    .WithOne(skill => skill.Course)
+                    .HasForeignKey(skill => skill.CourseId);
 
             modelBuilder.Entity<PrerequisiteCourseReference>()
                 .HasOne(e => e.Prerequisite).WithMany().HasForeignKey(e => e.PrerequisiteID);
+
         }
     }
 }
