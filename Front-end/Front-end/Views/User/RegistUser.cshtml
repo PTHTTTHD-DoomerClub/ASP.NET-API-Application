@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Account registration";
+}
+
+<div class="row justify-content-center bg-image mx-0 mb-5">
+    <div class="col-lg-6 py-5">
+        <div class="bg-white p-5 my-5">
+            <h1 class="text-center mb-4">30% Off For New Students</h1>
+            <form id="registForm" method="post" action="/User/Regist"
+                  enctype="application/x-www-form-urlencoded">
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="text" name="Username" class="form-control bg-light border-0" placeholder="Your Name" style="padding: 30px 20px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="email" name="Email" class="form-control bg-light border-0" placeholder="Your Email" style="padding: 30px 20px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="password" name="Password" class="form-control bg-light border-0" placeholder="Your Password" style="padding: 30px 20px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary btn-block" type="submit" style="height: 60px;">Sign Up Now</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#registForm").submit(function () {
+        console.log("Form submited!")
+        var jqxhr = $.post('User/Regist', $('#registForm').serialize())
+            .success(function () {
+                var loc = jqxhr.getResponseHeader('Location');
+                var a = $('<a/>', { href: loc, text: loc });
+                $('#message').html(a);
+            })
+            .error(function () {
+                $('#message').html("Error posting the update.");
+            });
+        return false;
+    });
+</script>
